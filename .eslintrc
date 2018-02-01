@@ -4,6 +4,6 @@
     "document": true
   },
   "rules": {
-    "func-names": ["error", "never"]
+    "comma-dangle": ["error", "never"]
   }
 }
