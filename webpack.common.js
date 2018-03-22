@@ -31,7 +31,7 @@ module.exports = {
       }
       return chunk.mapModules(m => path.relative(m.context, m.request)).join('_');
     }),
-    new webpack.optimize.CommonsChunkPlugin({
+    new webpack.optimize.SplitChunksPlugin({
       name: 'common'
     }),
     new NameAllModulesPlugin(),
