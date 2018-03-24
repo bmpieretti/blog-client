@@ -22,6 +22,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: path.resolve(__dirname, 'src'),
         use: [
           {
             loader: 'style-loader'
@@ -30,7 +31,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               url: false,
-              import: false,
               camelCase: true,
               localIdentName: '[local]',
               modules: true,

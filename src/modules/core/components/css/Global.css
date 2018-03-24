@@ -1,5 +1,8 @@
-:global(html) {
-  height: 100%;
-  background-color: blue;
-}
+@import url('https://yarnpkg.com/en/package/normalize.css');
 
+:global html,
+:global body,
+:global root {
+  height: 100%;
+  margin: 0;
+}
