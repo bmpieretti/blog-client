@@ -1,7 +1,11 @@
 import React from 'react';
-// import Global from './css/Global.css'; // eslint-disable-line
+import ErrorBoundary from './ErrorBoundary';
 import { helixPlusClient } from './css/App.css';
 
-const App = () => (<div className={helixPlusClient} />);
+const App = () => (
+  <ErrorBoundary>
+    <div className={helixPlusClient} />
+  </ErrorBoundary>
+);
 
 export default App;

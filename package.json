@@ -4,7 +4,7 @@
   "main": "index.js",
   "private": false,
   "scripts": {
-    "start:local": "webpack-dev-server --open --config webpack.dev.js",
+    "start:local": "webpack-dev-server --config webpack.dev.js",
     "start:prod": "webpack --config webpack.prod.js",
     "lint": "node ./node_modules/.bin/eslint client/**",
     "test": "jest",
@@ -15,9 +15,13 @@
     "node": ">=8"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
@@ -26,12 +30,10 @@
     "jest": "^22.4.3",
     "style-loader": "^0.20.3",
     "stylelint-config-css-modules": "^1.2.0",
-    "stylelint-config-standard": "^18.2.0"
+    "stylelint-config-standard": "^18.2.0",
+    "faker": "^4.1.0"
   },
   "dependencies": {
-    "babel-eslint": "^8.0.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-3": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "eslint": "^4.10.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -42,7 +44,7 @@
     "mobx": "^3.3.1",
     "mobx-react": "^4.3.4",
     "name-all-modules-plugin": "^1.0.1",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-hot-loader": "^4.0.0",

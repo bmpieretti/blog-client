@@ -11,6 +11,7 @@ describe('App Component', () => {
     const element = shallow(<App />);
 
     // then
-    expect(element.prop('className')).toEqual(className);
+    expect(element.find('ErrorBoundary').length).toBe(1);
+    expect(element.contains(<div className={className} />)).toEqual(true);
   });
 });

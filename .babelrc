@@ -1,8 +1,9 @@
 {
   "presets": [
-    "env", "react", "stage-3"
+    "stage-3", "react", "env"
   ],
   "plugins": [
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    "transform-class-properties"
   ]
 }
