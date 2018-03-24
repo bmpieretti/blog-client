@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import App from '../App';
 
 describe('App Component', () => {
-  test('should render with given props', () => {
+  test('should render', () => {
     // Given
-    const id = 'helix-plus-blog';
+    const className = 'helixPlusClient';
 
     // When
     const element = shallow(<App />);
 
     // then
-    expect(element.prop('id')).toEqual(id);
+    expect(element.prop('className')).toEqual(className);
   });
 });
