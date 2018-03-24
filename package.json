@@ -6,7 +6,10 @@
   "scripts": {
     "start:local": "webpack-dev-server --open --config webpack.dev.js",
     "start:prod": "webpack --config webpack.prod.js",
-    "lint": "node ./node_modules/.bin/eslint client/**"
+    "lint": "node ./node_modules/.bin/eslint client/**",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "engines": {
     "node": ">=8"
@@ -15,7 +18,10 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3"
   },
   "dependencies": {
     "babel-eslint": "^8.0.2",
@@ -41,5 +47,8 @@
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./test/enzyme.js"
   }
 }

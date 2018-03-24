@@ -4,6 +4,11 @@
     "document": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    // TODO: Find way to ignore .spec files...
+    "import/no-extraneous-dependencies": 0
+  },
+  "env": {
+    "jest": true
   }
 }
