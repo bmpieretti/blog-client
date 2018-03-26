@@ -12,6 +12,6 @@ describe('App Component', () => {
 
     // then
     expect(element.find('ErrorBoundary').length).toBe(1);
-    expect(element.contains(<div className={className} />)).toEqual(true);
+    expect(element.contains(<div className={className} />)).toBe(true);
   });
 });
