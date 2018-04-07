@@ -3,7 +3,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
@@ -27,14 +29,23 @@ module.exports = (env, argv) => {
       ...entryOptions
     },
     output: {
-      filename: `${moduleName}.min.js`,
-      chunkFilename: '[name].bundle.js'
+      filename: `${moduleName}.min.js`
     },
     devServer: (isDev) ? {
       hot: true,
       contentBase: './dist',
       port: 3000
     } : undefined,
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: isDev
+        }),
+        new OptimizeCssAssetsPlugin({})
+      ]
+    },
     module: {
       rules: [
         {
