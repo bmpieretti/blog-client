@@ -4,8 +4,10 @@
   "main": "index.js",
   "private": false,
   "scripts": {
+    "build:local": "webpack --mode development --config webpack.dll.config.js",
+    "build": "webpack --mode production --config webpack.dll.config.js",
     "start:local": "webpack-dev-server --mode development --config webpack.config.js",
-    "start:prod": "webpack --mode production --config webpack.config.js",
+    "start": "webpack --mode production --config webpack.config.js",
     "lint": "node ./node_modules/.bin/eslint client/**",
     "test": "jest",
     "test:watch": "jest --watch",

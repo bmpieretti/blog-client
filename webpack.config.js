@@ -1,11 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const manifest = require('./dist/vendor.json');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
@@ -89,7 +89,9 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: `${moduleName}.min.css`
       }),
-      new CleanWebpackPlugin(['dist']),
+      new webpack.DllReferencePlugin({
+        manifest
+      }),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: 'index.html',

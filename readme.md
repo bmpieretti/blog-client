@@ -35,17 +35,18 @@ This will clone the repo, take you into the cloned directory, and start installi
 
 ### Running Locally
 
-In order to run the app locally run the following command:
+In order to run the app locally run the following commands:
 
 ```shell
+  npm run build:local
   npm run start:local
 ```
 
-This starts up a webpack dev server using the `webpack.dev.js` bundle and serves the app on [http://localhost:8080](http://localhost:8080). A bundle analyzer is also server over locally when running in dev, and can be accessed via [http://localhost:8888](http://localhost:8888)
+The build command runs the webpack dll config and generates the `vendor.dll.js` script. This only needs to be run once to generate the file or if the `webpack.dll.config.js` file changes. The start starts up a webpack dev server using the development mode for the webpack bundle and serves the app on [http://localhost:8080](http://localhost:8080). A bundle analyzer is also server over locally when running in dev, and can be accessed via [http://localhost:8888](http://localhost:8888).
 
 ## Prod Configuration
 
-A production version can also be run via the `npm run start:prod` command, which uses the `webpack.prod.js` config
+A production version can also be run via the `npm run build && npm start` commands, which uses the production mode of the webpack configs
 
 ## Tests
 
