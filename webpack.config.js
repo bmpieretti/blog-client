@@ -3,9 +3,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
+  const moduleName = (isDev) ? '[name].[hash]' : '[name].[chunkhash]';
   let entryOptions = {};
   let plugins = [];
 
@@ -21,11 +23,11 @@ module.exports = (env, argv) => {
 
   return ({
     entry: {
-      main: './src/index.jsx',
+      app: './src/index.jsx',
       ...entryOptions
     },
     output: {
-      filename: (isDev) ? '[name].[hash].min.js' : '[name].[chunkhash].min.js',
+      filename: `${moduleName}.min.js`,
       chunkFilename: '[name].bundle.js'
     },
     devServer: (isDev) ? {
@@ -45,7 +47,7 @@ module.exports = (env, argv) => {
           include: path.resolve(__dirname, 'src'),
           use: [
             {
-              loader: 'style-loader'
+              loader: MiniCssExtractPlugin.loader
             },
             {
               loader: 'css-loader',
@@ -72,6 +74,9 @@ module.exports = (env, argv) => {
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         openAnalyzer: false
+      }),
+      new MiniCssExtractPlugin({
+        filename: `${moduleName}.min.css`
       }),
       new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
