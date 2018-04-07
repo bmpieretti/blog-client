@@ -3,46 +3,36 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
-  let config = {};
+  let entryOptions = {};
   let plugins = [];
 
   if (isDev) {
-    config = {
-      entry: {
-        hotloader: 'react-hot-loader/patch',
-        main: './src/index.jsx'
-      },
-      devServer: {
-        hot: true,
-        contentBase: './dist',
-        port: 3000
-      }
+    entryOptions = {
+      hotloader: 'react-hot-loader/patch'
     };
 
     plugins = [
       new webpack.HotModuleReplacementPlugin()
     ];
-  } else {
-    config = {
-      entry: './src/index.jsx'
-    };
-
-    plugins = [
-      new UglifyWebpackPlugin()
-    ];
   }
 
   return ({
-    ...config,
-    output: {
-      filename: (isDev) ? '[name].[hash].js' : '[name].[chunkhash].js',
-      chunkFilename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist')
+    entry: {
+      main: './src/index.jsx',
+      ...entryOptions
     },
+    output: {
+      filename: (isDev) ? '[name].[hash].min.js' : '[name].[chunkhash].min.js',
+      chunkFilename: '[name].bundle.js'
+    },
+    devServer: (isDev) ? {
+      hot: true,
+      contentBase: './dist',
+      port: 3000
+    } : undefined,
     module: {
       rules: [
         {
@@ -79,14 +69,16 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': argv.mode
       }),
-      new BundleAnalyzerPlugin({ openAnalyzer: false }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false
+      }),
       new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: 'index.html',
         inject: 'body'
-      }),
-      new webpack.NoEmitOnErrorsPlugin()
+      })
     ]
   });
 };
