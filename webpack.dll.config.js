@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   resolve: {
@@ -13,12 +14,13 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name].dll.js'
+    filename: '[name].dll.js',
+    library: '[name]'
   },
   plugins: [
     new webpack.DllPlugin({
       name: '[name]',
-      path: './dist/[name].json'
+      path: path.join(__dirname, 'dist/[name].json')
     })
   ]
 };

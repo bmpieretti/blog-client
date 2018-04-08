@@ -9,7 +9,7 @@ const manifest = require('./dist/vendor.json');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development';
-  const moduleName = (isDev) ? '[name].[hash]' : '[name].[chunkhash]';
+  const moduleName = (isDev) ? '[name].[hash]' : '[name].[chunkhash].min';
   let entryOptions = {};
   let plugins = [];
 
@@ -29,13 +29,14 @@ module.exports = (env, argv) => {
       ...entryOptions
     },
     output: {
-      filename: `${moduleName}.min.js`
+      filename: `${moduleName}.js`
     },
     devServer: (isDev) ? {
       hot: true,
       contentBase: './dist',
       port: 3000
     } : undefined,
+    devtool: (isDev) ? 'inline-source-map' : false,
     optimization: {
       minimizer: [
         new UglifyJsPlugin({
@@ -80,14 +81,14 @@ module.exports = (env, argv) => {
     plugins: [
       ...plugins,
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': argv.mode
+        'process.env.NODE_ENV': `"${argv.mode}"`
       }),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         openAnalyzer: false
       }),
       new MiniCssExtractPlugin({
-        filename: `${moduleName}.min.css`
+        filename: `${moduleName}.css`
       }),
       new webpack.DllReferencePlugin({
         manifest
