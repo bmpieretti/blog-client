@@ -8,7 +8,8 @@
     "build": "webpack --mode production --config webpack.dll.config.js",
     "start:local": "webpack-dev-server --mode development --config webpack.config.js",
     "start": "webpack --mode production --config webpack.config.js",
-    "lint": "node ./node_modules/.bin/eslint client/**",
+    "lint": "node ./node_modules/.bin/eslint src/**",
+    "lint:styles": "node ./node_modules/.bin/stylelint src/**",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -42,6 +43,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "style-loader": "^0.20.3",
+    "stylelint": "^9.2.0",
     "stylelint-config-css-modules": "^1.2.0",
     "stylelint-config-standard": "^18.2.0",
     "uglifyjs-webpack-plugin": "^1.2.4",
