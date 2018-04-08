@@ -1,8 +1,20 @@
 {
-  "name": "helix-plus-api",
+  "name": "blog-app-api",
   "version": "0.0.0",
+  "description": "My personal playground blog app for learning more about the UX design process and a couple random libraries",
+  "keywords": ["blog-app", "react", "webpack", "css-modules", "jest"],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/bmpieretti/blog-app-client.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/bmpieretti/blog-app-client/issues",
+    "email" : "bmpieretti@gmail.com"
+  },
   "main": "index.js",
-  "private": false,
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "build:local": "webpack --mode development --config webpack.dll.config.js",
     "build": "webpack --mode production --config webpack.dll.config.js",
@@ -13,9 +25,6 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
-  },
-  "engines": {
-    "node": ">=8"
   },
   "devDependencies": {
     "autodll-webpack-plugin": "^0.3.9",
