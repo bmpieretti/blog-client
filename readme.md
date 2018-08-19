@@ -10,10 +10,10 @@ This project is a WIP
 ### Built With
 * [React](https://reactjs.org/) for view library
 * [Jest](https://facebook.github.io/jest/) for unit testing
-* [Css Modules](https://github.com/css-modules/css-modules) for moduler css (Potentially changing this)
+* [Styled Components](https://github.com/styled-components/styled-components) for moduler css
 * [Webpack](https://webpack.js.org/) for bundling js modules
-* [Apollo Client](https://www.apollographql.com/client/) for client-server communication
-* [TODO: Mobx](https://github.com/mobxjs/mobx) for application wide state
+* [TODO: Apollo Client](https://www.apollographql.com/client/) for client-server communication
+* [TODO: Mobx?](https://github.com/mobxjs/mobx) for application wide state
 * [TODO: React Intl](https://github.com/yahoo/react-intl) for i18n support
 * [TODO: React Router](https://reacttraining.com/react-router/) for client side routing
 
@@ -26,8 +26,8 @@ Download Node 8 or above from [here](https://nodejs.org/en/)
 Run the following commands to set up the project:
 
 ```shell
-git clone https://github.com/bmpieretti/helix-plus-client.git
-cd helix-plus-client
+git clone https://github.com/bmpieretti/blog-client.git
+cd blog-client
 npm i
 ```
 
@@ -68,9 +68,15 @@ Test coverage can be viewed when running:
 npm run test:coverage
 ```
 
+Verification of Tree Dependencies, Eslint, Stylelint, and tests can be run via:
+
+```shell
+npm run verify
+```
+
 ## Licensing
 
-This project is fully open source and can be used and modified freely. Check out the [license](https://github.com/bmpieretti/helix-plus-client/blob/master/LICENSE) for more info.
+This project is fully open source and can be used and modified freely. Check out the [license](https://github.com/bmpieretti/blog-client/blob/master/LICENSE) for more info.
 
 ## Related Links
-* [helix-plus-api](https://github.com/bmpieretti/helix-plus-api.git)
+* [blog-api](https://github.com/bmpieretti/blog-api.git)

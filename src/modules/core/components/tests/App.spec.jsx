@@ -1,17 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 import App from '../App';
 
-describe('App Component', () => {
+describe('App Component: ', () => {
   test('should render', () => {
-    // Given
-    const className = 'helixPlusClient';
+    const component = shallow(<App />);
+    expect(shallowToJson(component)).toMatchSnapshot();
+  });
 
-    // When
-    const element = shallow(<App />);
-
-    // then
-    expect(element.find('ErrorBoundary').length).toBe(1);
-    expect(element.contains(<div className={className} />)).toBe(true);
+  test('should render main and styles', () => {
+    const mainElement = shallow(<App />).dive().dive();
+    expect(shallowToJson(mainElement)).toMatchSnapshot();
   });
 });

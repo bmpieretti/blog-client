@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Styles from './css/ErrorBoundary.css';
+import BoundaryError from '../styled/ErrorBoundary';
+import { ErrorP } from '../../../styles/Base';
 
 export default class ErrorBoundary extends Component {
   static propTypes = {
@@ -11,7 +12,7 @@ export default class ErrorBoundary extends Component {
   }
 
   static defaultProps = {
-    children: undefined
+    children: null
   }
 
   state = { error: '', infoStack: '' }
@@ -25,12 +26,6 @@ export default class ErrorBoundary extends Component {
   }
 
   render() {
-    const {
-      boundaryError,
-      boundaryErrorTitle,
-      boundaryErrorMessage,
-      boundaryErrorFooter
-    } = Styles;
     const { error, infoStack } = this.state;
 
     if (!error && !infoStack) {
@@ -38,17 +33,17 @@ export default class ErrorBoundary extends Component {
     }
 
     return (
-      <div className={boundaryError}>
-        <h1 className={boundaryErrorTitle}>
+      <BoundaryError>
+        <h1>
           Oh no! You have hit an error that should never have made it into the app!
         </h1>
-        <p className={boundaryErrorMessage}>
+        <ErrorP>
           {error}
-        </p>
-        <p className={boundaryErrorFooter}>
+        </ErrorP>
+        <footer>
           Let me know about this problem via email at <a href={`mailto:bmpieretti@gmail.com?subject=Incident%20Report&amp;body=${error}--${infoStack}`}>bmpieretti@gmail.com</a>.
-        </p>
-      </div>
+        </footer>
+      </BoundaryError>
     );
   }
 }

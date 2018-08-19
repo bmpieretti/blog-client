@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component:  should render 1`] = `
+<ErrorBoundary>
+  <App__Main />
+</ErrorBoundary>
+`;
+
+exports[`App Component:  should render main and styles 1`] = `
+.c0 {
+  height: 100%;
+}
+
+<main
+  className="c0"
+/>
+`;

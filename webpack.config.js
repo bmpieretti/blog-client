@@ -3,8 +3,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const manifest = require('./dist/vendor.json');
 
 module.exports = (env, argv) => {
@@ -43,8 +41,7 @@ module.exports = (env, argv) => {
           cache: true,
           parallel: true,
           sourceMap: isDev
-        }),
-        new OptimizeCssAssetsPlugin({})
+        })
       ]
     },
     module: {
@@ -53,25 +50,6 @@ module.exports = (env, argv) => {
           test: /\.(js|jsx)$/,
           include: path.resolve(__dirname, 'src'),
           loader: 'babel-loader'
-        },
-        {
-          test: /\.css$/,
-          include: path.resolve(__dirname, 'src'),
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                url: false,
-                camelCase: true,
-                localIdentName: '[local]',
-                modules: true,
-                minimize: true
-              }
-            }
-          ]
         }
       ]
     },
@@ -86,9 +64,6 @@ module.exports = (env, argv) => {
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         openAnalyzer: false
-      }),
-      new MiniCssExtractPlugin({
-        filename: `${moduleName}.css`
       }),
       new webpack.DllReferencePlugin({
         manifest

@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './modules/core/components/App';
 
+// eslint-disable-next-line no-unused-vars
+import global from './styles/global';
+
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>

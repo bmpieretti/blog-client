@@ -1,10 +1,10 @@
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary';
-import { helixPlusClient } from './css/App.css';
+import { Main } from '../styled/App';
 
 const App = () => (
   <ErrorBoundary>
-    <div className={helixPlusClient} />
+    <Main />
   </ErrorBoundary>
 );
 
