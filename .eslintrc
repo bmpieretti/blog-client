@@ -6,7 +6,6 @@
   },
   "rules": {
     "comma-dangle": ["error", "never"],
-    "import/no-extraneous-dependencies": 0,
     "no-unused-expressions": [
       "warn", {
         "allowTaggedTemplates": true
