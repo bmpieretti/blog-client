@@ -12,10 +12,6 @@ This project is a WIP
 * [Jest](https://facebook.github.io/jest/) for unit testing
 * [Styled Components](https://github.com/styled-components/styled-components) for modular css
 * [Webpack](https://webpack.js.org/) for bundling js modules
-* [TODO: Apollo Client](https://www.apollographql.com/client/) for client-server communication
-* [TODO: Mobx?](https://github.com/mobxjs/mobx) for application wide state
-* [TODO: React Intl](https://github.com/yahoo/react-intl) for i18n support
-* [TODO: React Router](https://reacttraining.com/react-router/) for client side routing
 
 ### Prerequisites
 
