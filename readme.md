@@ -10,7 +10,7 @@ This project is a WIP
 ### Built With
 * [React](https://reactjs.org/) for view library
 * [Jest](https://facebook.github.io/jest/) for unit testing
-* [Styled Components](https://github.com/styled-components/styled-components) for moduler css
+* [Styled Components](https://github.com/styled-components/styled-components) for modular css
 * [Webpack](https://webpack.js.org/) for bundling js modules
 * [TODO: Apollo Client](https://www.apollographql.com/client/) for client-server communication
 * [TODO: Mobx?](https://github.com/mobxjs/mobx) for application wide state
