@@ -5,6 +5,7 @@ import { Main } from '../styled/App';
 const App = () => (
   <ErrorBoundary>
     <Main />
+    <div> Hello World! </div>
   </ErrorBoundary>
 );
 
