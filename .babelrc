@@ -14,5 +14,12 @@
         "fileName": false
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/preset-env", { "modules": "commonjs" }]
+      ]
+    }
+  }
 }

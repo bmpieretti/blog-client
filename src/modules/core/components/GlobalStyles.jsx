@@ -1,7 +1,7 @@
 import styledNormalize from 'styled-normalize';
 import { createGlobalStyle } from 'styled-components';
 
-createGlobalStyle`
+export default createGlobalStyle`
   ${styledNormalize}
 
   html,
@@ -14,7 +14,7 @@ createGlobalStyle`
 
   #root {
     display: flex;
-    background-color: #bdccd4;
+    background-color: #f7f7f7;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     margin: 0;

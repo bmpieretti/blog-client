@@ -1,16 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
+import { shallow, mount } from 'enzyme';
 import App from '../App';
 
 describe('App Component: ', () => {
-  test('should render', () => {
-    const component = shallow(<App />);
-    expect(shallowToJson(component)).toMatchSnapshot();
-  });
+  const component = mount(<App />);
 
-  test('should render main and styles', () => {
-    const mainElement = shallow(<App />).dive().dive();
-    expect(shallowToJson(mainElement)).toMatchSnapshot();
+  afterAll(() => {
+    component.unmount()
+  })
+
+  test('should render', () => {
+    expect(component.find('main').length).toBe(1);
   });
 });
