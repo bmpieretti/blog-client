@@ -1,11 +1,20 @@
 import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
-import { Main } from '../styled/App';
+import PropTypes from 'prop-types';
+import StyleWrapper from '../styled/App';
 
-const App = () => (
-  <ErrorBoundary>
-    <Main />
-  </ErrorBoundary>
+const propTypes = {
+  className: PropTypes.string
+};
+
+const defaultProps = {
+  className: ''
+};
+
+export const App = ({ className }) => (
+  <main className={className} />
 );
 
-export default App;
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
+
+export default StyleWrapper(App);

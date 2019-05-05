@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
 const env = process.env.NODE_ENV;
 
@@ -36,7 +37,8 @@ if (isDev) {
   };
 
   plugins = [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new DashboardPlugin()
   ];
 }
 
@@ -51,7 +53,9 @@ module.exports = {
   devServer: (isDev) ? {
     hot: true,
     contentBase: './dist',
-    port: 3000
+    port: 3000,
+    quiet: true,
+    historyApiFallback: true
   } : undefined,
   devtool: (isDev) ? 'source-map' : false,
   mode: (env !== 'production') ? 'development' : 'production',

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { error } from '../../../styles/color';
 
-export default styled.div`
+export default Component => styled(Component)`
   max-width: 480px;
   margin: 0 auto;
   align-self: center;
@@ -17,6 +18,7 @@ export default styled.div`
   p {
     margin-bottom: 20px;
     text-align: center;
+    color: ${error};
   }
 
   footer {

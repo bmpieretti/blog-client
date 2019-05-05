@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { backgroundGrey } from '../../../styles/color';
 
-// eslint-disable-next-line import/prefer-default-export
-export const Main = styled.main`
+export default Component => styled(Component)`
   height: 100%;
-  background-color: red;
+  background-color: ${backgroundGrey};
 `;
